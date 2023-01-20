@@ -3,13 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/css/style.css">
-        <script src="/js/app.js"></script>
         <title>Weather</title>
     </head>
     <body>
-        <div class="main-content">   {{>header}}
-            <p>Hello, I am {{name}}</p>
-            <img class="portrait" src="/img/danny.jpg" alt="danny"></div>
+        <div class="main-content">
+            {{>header}}
+            <p>Use this site to get your weather!</p>
+            <form>
+                <input placeholder="Location">
+                <button></button>
+            </form>
+        </div>
+
+        <p id="message-1"></p>
+        <p id="message-2"></p>
         {{>footer}}
+        <script src="/js/app.js"></script>
     </body>
 </html>
