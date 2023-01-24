@@ -5,26 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aafa6132-0bb2-45bb-bc33-f8799c30f022" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../playground/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../playground/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../playground/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../playground/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../playground/.idea/playground.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../playground/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../playground/1-json.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../playground/3-arrow-challenge.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../playground/4-callbacks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../playground/5-es6-objects.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../playground/6-raw-http.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../playground/8-promises.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../playground/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../playground/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mongodb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../playground/1-json.js" beforeDir="false" afterPath="$PROJECT_DIR$/../playground/1-json.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../playground/2-arrow-function.js" beforeDir="false" afterPath="$PROJECT_DIR$/../playground/2-arrow-function.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../playground/4-callback.js" beforeDir="false" afterPath="$PROJECT_DIR$/../playground/4-callback.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../playground/7-default=params.js" beforeDir="false" afterPath="$PROJECT_DIR$/../playground/7-default=params.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/db/mongoose.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../playground/4-callbacks.js" beforeDir="false" afterPath="$PROJECT_DIR$/../playground/4-callbacks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../playground/8-promises.js" beforeDir="false" afterPath="$PROJECT_DIR$/../playground/8-promises.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-server/public/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +32,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2KgiMOSNXzoVR1QhfEypeNchOyV" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -74,7 +63,8 @@
       <option name="presentableId" value="Default" />
       <updated>1674402581062</updated>
       <workItem from="1674402584103" duration="5167000" />
-      <workItem from="1674490593228" duration="1090000" />
+      <workItem from="1674490593228" duration="1778000" />
+      <workItem from="1674581592480" duration="4854000" />
     </task>
     <servers />
   </component>
