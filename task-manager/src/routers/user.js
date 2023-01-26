@@ -13,6 +13,18 @@ router.post("/users", async (req, res) => {
   }
 });
 
+router.post("/users/login", async (req, res) => {
+  try {
+    const user = await User.findByCredentials(
+      req.body.email,
+      req.body.password
+    );
+    res.send(user);
+  } catch (e) {
+    res.status(400).send();
+  }
+});
+
 router.get("/users", async (req, res) => {
   try {
     const users = await User.find({});
@@ -23,12 +35,10 @@ router.get("/users", async (req, res) => {
 });
 
 router.get("/users/:id", async (req, res) => {
-  const { id } = req.params;
-
   // usually we would want to convert the id const to ObjectID of the mongodb
   // library, but that's okay because the Mongoose library does that for us :)
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(req.params.id);
 
     if (!user) return res.status(404).send();
 
@@ -49,11 +59,11 @@ router.patch("/users/:id", async (req, res) => {
     return res.status(400).send({ error: "Invalid updates!" });
 
   try {
-    const { id, body } = req.params;
-    const user = await User.findByIdAndUpdate(id, body, {
-      new: true,
-      runValidators: true,
-    });
+    const user = await User.findById(req.params.id);
+
+    updates.forEach((update) => (user[update] = req.body[update]));
+
+    await user.save();
 
     if (!user) return res.status(404).send();
 
@@ -65,9 +75,7 @@ router.patch("/users/:id", async (req, res) => {
 
 router.delete("/users/:id", async (req, res) => {
   try {
-    const { id } = req.params;
-
-    const user = await User.findByIdAndDelete(id);
+    const user = await User.findByIdAndDelete(req.params.id);
 
     if (!user) return res.status(404).send();
 
