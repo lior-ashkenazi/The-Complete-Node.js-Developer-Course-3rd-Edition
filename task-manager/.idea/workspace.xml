@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aafa6132-0bb2-45bb-bc33-f8799c30f022" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/playground/promise-chaining-2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playground/promise-chaining.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/task.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../playground/4-callbacks.js" beforeDir="false" afterPath="$PROJECT_DIR$/../playground/4-callbacks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../playground/8-promises.js" beforeDir="false" afterPath="$PROJECT_DIR$/../playground/8-promises.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../playground/9-async-await.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routers/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/mongoose.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/mongoose.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-server/public/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/promise-chaining-2.js" beforeDir="false" afterPath="$PROJECT_DIR$/playground/promise-chaining-2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/promise-chaining.js" beforeDir="false" afterPath="$PROJECT_DIR$/playground/promise-chaining.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +82,7 @@
       <workItem from="1674490593228" duration="1778000" />
       <workItem from="1674581592480" duration="4854000" />
       <workItem from="1674636999824" duration="10351000" />
+      <workItem from="1674726714355" duration="5074000" />
     </task>
     <servers />
   </component>
