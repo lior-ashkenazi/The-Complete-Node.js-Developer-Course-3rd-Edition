@@ -5,11 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aafa6132-0bb2-45bb-bc33-f8799c30f022" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/emails/account.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/math.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/math.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/user.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/task-manager.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/promise-chaining-2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/promise-chaining.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/mongoose.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/mongoose.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,11 +39,17 @@
       </list>
     </option>
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectId" id="2KgiMOSNXzoVR1QhfEypeNchOyV" />
   <component name="ProjectLevelVcsManager">
@@ -50,7 +71,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Lior\\Desktop\\The Complete Node.js Developer Course (3rd Edition)\\task-manager\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -88,6 +109,10 @@
       <workItem from="1674989573315" duration="6455000" />
       <workItem from="1675079956293" duration="9812000" />
       <workItem from="1675161787943" duration="9313000" />
+      <workItem from="1675269371745" duration="1000000" />
+      <workItem from="1675596313820" duration="584000" />
+      <workItem from="1675936690809" duration="7399000" />
+      <workItem from="1675958686138" duration="5520000" />
     </task>
     <servers />
   </component>

@@ -18,24 +18,29 @@ const userSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
       validate(value) {
-        if (!validator.isEmail(value)) throw new Error("Email is invalid");
+        if (!validator.isEmail(value)) {
+          throw new Error("Email is invalid");
+        }
       },
     },
     password: {
       type: String,
       required: true,
-      minLength: 7,
+      minlength: 7,
       trim: true,
       validate(value) {
-        if (value.toLowerCase().includes("password"))
-          throw new Error("Password cannot contain 'password'");
+        if (value.toLowerCase().includes("password")) {
+          throw new Error('Password cannot contain "password"');
+        }
       },
     },
     age: {
       type: Number,
       default: 0,
       validate(value) {
-        if (value < 0) throw new Error("Age must be a positive number");
+        if (value < 0) {
+          throw new Error("Age must be a positive number");
+        }
       },
     },
     tokens: [
@@ -74,8 +79,7 @@ userSchema.methods.toJSON = function () {
 
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
-  // jwt is expecting a String ID rather than Object ID
-  const token = jwt.sign({ _id: user._id.toString() }, "thisismynewcourse");
+  const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET);
 
   user.tokens = user.tokens.concat({ token });
   await user.save();
@@ -107,17 +111,13 @@ userSchema.pre("save", async function (next) {
     user.password = await bcrypt.hash(user.password, 8);
   }
 
-  // next is called in the end of those function for
-  // signaling that the function done with it's async operations
   next();
 });
 
 // Delete user tasks when user is removed
 userSchema.pre("remove", async function (next) {
   const user = this;
-
   await Task.deleteMany({ owner: user._id });
-
   next();
 });
 
