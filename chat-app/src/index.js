@@ -4,8 +4,8 @@ const express = require("express");
 const socketio = require("socket.io");
 const Filter = require("bad-words");
 const {
-  generateMessage,
-  generateLocationMessage,
+    generateMessage,
+    generateLocationMessage,
 } = require("./utils/messages");
 
 const app = express();
@@ -18,40 +18,50 @@ const publicDirectoryPath = path.join(__dirname, "../public");
 app.use(express.static(publicDirectoryPath));
 
 io.on("connection", (socket) => {
-  console.log("New WebSocket connection");
+    console.log("New WebSocket connection");
 
-  // emit a message to only one socket
-  socket.emit("message", generateMessage("Welcome!"));
-  // emit a message to all socket beside this socket
-  socket.broadcast.emit("message", generateMessage("A new user has joined!"));
+    socket.on("join", ({username, room}) => {
+        socket.join(room);
 
-  socket.on("sendMessage", (message, callback) => {
-    const filter = new Filter();
+        // socket.emit, io.emit, socket.broadcast.emit
+        // io.to.emit, socket.broadcast.to.emit
 
-    if (filter.isProfane(message)) {
-      return callback("Profanity is not allowed");
-    }
+        // emit a message to only one socket
+        socket.emit("message", generateMessage("Welcome!"));
+        // emit a message to all socket beside this socket
+        socket.broadcast.to.emit(
+            "message",
+            generateMessage(`${username} has joined!`)
+        );
+    });
 
-    // emit a message to all available sockets
-    io.emit("message", generateMessage(message));
-    callback();
-  });
+    socket.on("sendMessage", (message, callback) => {
+        const filter = new Filter();
 
-  socket.on("sendLocation", (coords, callback) => {
-    io.emit(
-      "message",
-      generateLocationMessage(
-        `https://google.com/maps?q=$${coords.latitude},${coords.longitude}`
-      )
-    );
-    callback();
-  });
+        if (filter.isProfane(message)) {
+            return callback("Profanity is not allowed");
+        }
 
-  socket.on("disconnect", () => {
-    io.emit("locationMessage", generateMessage("A user has left!"));
-  });
+        // emit a message to all available sockets
+        io.to("Center City").emit("message", generateMessage(message));
+        callback();
+    });
+
+    socket.on("sendLocation", (coords, callback) => {
+        io.emit(
+            "message",
+            generateLocationMessage(
+                `https://google.com/maps?q=$${coords.latitude},${coords.longitude}`
+            )
+        );
+        callback();
+    });
+
+    socket.on("disconnect", () => {
+        io.emit("locationMessage", generateMessage("A user has left!"));
+    });
 });
 
 server.listen(port, () => {
-  console.log(`Server is up on port ${port}`);
+    console.log(`Server is up on port ${port}`);
 });
