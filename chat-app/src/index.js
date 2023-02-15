@@ -4,9 +4,15 @@ const express = require("express");
 const socketio = require("socket.io");
 const Filter = require("bad-words");
 const {
-    generateMessage,
-    generateLocationMessage,
+  generateMessage,
+  generateLocationMessage,
 } = require("./utils/messages");
+const {
+  addUser,
+  removeUser,
+  getUser,
+  getUsersInRoom,
+} = require("./utils/users");
 
 const app = express();
 const server = http.createServer(app);
@@ -18,50 +24,72 @@ const publicDirectoryPath = path.join(__dirname, "../public");
 app.use(express.static(publicDirectoryPath));
 
 io.on("connection", (socket) => {
-    console.log("New WebSocket connection");
+  console.log("New WebSocket connection");
 
-    socket.on("join", ({username, room}) => {
-        socket.join(room);
+  socket.on("join", (options, callback) => {
+    const { error, user } = addUser({ id: socket.id, ...options });
 
-        // socket.emit, io.emit, socket.broadcast.emit
-        // io.to.emit, socket.broadcast.to.emit
+    if (error) {
+      return callback(error);
+    }
 
-        // emit a message to only one socket
-        socket.emit("message", generateMessage("Welcome!"));
-        // emit a message to all socket beside this socket
-        socket.broadcast.to.emit(
-            "message",
-            generateMessage(`${username} has joined!`)
-        );
+    socket.join(user.room);
+
+    socket.emit("message", generateMessage("Admin", "Welcome!"));
+    socket.broadcast
+      .to(user.room)
+      .emit(
+        "message",
+        generateMessage("Admin", `${user.username} has joined!`)
+      );
+    io.to(user.room).emit("roomData", {
+      room: user.room,
+      users: getUsersInRoom(user.room),
     });
 
-    socket.on("sendMessage", (message, callback) => {
-        const filter = new Filter();
+    callback();
+  });
 
-        if (filter.isProfane(message)) {
-            return callback("Profanity is not allowed");
-        }
+  socket.on("sendMessage", (message, callback) => {
+    const user = getUser(socket.id);
+    const filter = new Filter();
 
-        // emit a message to all available sockets
-        io.to("Center City").emit("message", generateMessage(message));
-        callback();
-    });
+    if (filter.isProfane(message)) {
+      return callback("Profanity is not allowed!");
+    }
 
-    socket.on("sendLocation", (coords, callback) => {
-        io.emit(
-            "message",
-            generateLocationMessage(
-                `https://google.com/maps?q=$${coords.latitude},${coords.longitude}`
-            )
-        );
-        callback();
-    });
+    io.to(user.room).emit("message", generateMessage(user.username, message));
+    callback();
+  });
 
-    socket.on("disconnect", () => {
-        io.emit("locationMessage", generateMessage("A user has left!"));
-    });
+  socket.on("sendLocation", (coords, callback) => {
+    const user = getUser(socket.id);
+    io.to(user.room).emit(
+      "locationMessage",
+      generateLocationMessage(
+        username,
+        `https://google.com/maps?q=${coords.latitude},${coords.longitude}`
+      )
+    );
+    callback();
+  });
+
+  socket.on("disconnect", () => {
+    const user = removeUser(socket.id);
+
+    if (user) {
+      io.to(user.room).emit(
+        "message",
+        generateMessage("Admin", `${user.username} has left!`)
+      );
+      io.to(user.room).emit("roomData", {
+        room: user.room,
+        users: getUsersInRoom(user.room),
+      });
+    }
+  });
 });
 
 server.listen(port, () => {
-    console.log(`Server is up on port ${port}`);
+  console.log(`Server is up on port ${port}!`);
 });
